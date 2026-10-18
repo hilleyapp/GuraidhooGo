@@ -811,7 +811,7 @@
       <button class="theme-toggle" id="theme-toggle">🌙 Dark</button>
     </nav>
     <div class="hero-copy"><div class="eyebrow">WELCOME TO THE MALDIVES</div><h1>Discover <span>Guraidhoo</span></h1><p class="hero-kicker">Discover · Explore · Taste · Experience</p><p class="hero-description">Your complete guide to ferry schedules, buggy hire, cafés, dining and local island life — all in one place.</p><a class="hero-cta" href="#ferries">Explore Guraidhoo <span>→</span></a><div class="live-clock" id="live-clock">🕒 Loading local time...</div></div>
-    <div class="hero-note">Small island.<br/>Big experiences. <span>♡</span></div>
+    
   </header>
 
   <!-- Weather Widget -->
@@ -977,15 +977,7 @@
     <!-- Buggy Service Booking -->
     <div class="buggy-service" id="buggy">
       <h3>🛺 Island Buggy Hiring Service</h3>
-      <p class="section-intro">Plan your ride around the island. Send a booking enquiry and confirm availability directly with the local service.</p>
-      <form class="booking-form" id="buggy-booking-form">
-        <label>Your name<input name="name" required placeholder="Full name" autocomplete="name"></label>
-        <label>Ride date<input name="date" type="date" required></label>
-        <label>Preferred time<select name="time" required><option value="">Choose a time</option><option>Morning</option><option>Afternoon</option><option>Evening</option></select></label>
-        <label>Passengers<select name="passengers"><option>1–2</option><option>3–4</option><option>5+</option></select></label>
-        <button class="booking-submit" type="submit">Prepare booking enquiry <span>→</span></button>
-        <p class="form-note">This prepares a message for you to send. Your booking is not confirmed until the provider replies.</p>
-      </form>
+        
       <div class="contact-grid">
         <a class="contact-item buggy-item" href="tel:+9607994699">
           <div class="icon-avatar buggy-avatar">🛺</div>
