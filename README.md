@@ -786,20 +786,9 @@
     .contact-item:hover { transform:translateY(-2px); }
     .contacts h3,.buggy-service h3,.dining-service h3 { color:#0d6470; font-size:1rem; }
     .section-intro { text-align:center; color:var(--muted); margin:-5px 0 18px; font-size:.9rem; }
-    .booking-form { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; padding:18px; background:#f3fbfa; border:1px solid #d7eeeb; border-radius:16px; margin-bottom:16px; }
-    .booking-form label { display:flex; flex-direction:column; gap:6px; color:#27596a; font-size:.78rem; font-weight:800; }
-    .booking-form input,.booking-form select { width:100%; border:1px solid #c7e0dd; border-radius:10px; background:#fff; color:#123b50; padding:11px; font:inherit; min-height:43px; }
-    .booking-submit { grid-column:span 2; border:0; border-radius:11px; padding:12px 18px; background:#0a8586; color:white; font-weight:850; cursor:pointer; }
-    .booking-submit:hover { background:#08696d; }
-    .form-note { grid-column:span 2; align-self:center; color:#64808a; font-size:.73rem; }
     footer { margin-top:26px; padding:30px 18px; background:#073e4a; color:#e8ffff; }
-    [data-theme="dark"] .top-nav { background:#122b38; color:#f5ffff; }
-    [data-theme="dark"] .brand,[data-theme="dark"] .nav-links a { color:#f5ffff; }
-    [data-theme="dark"] .booking-form { background:#1e3944; border-color:#355a62; }
-    [data-theme="dark"] .booking-form label { color:#e0f7f5; }
-    [data-theme="dark"] .booking-form input,[data-theme="dark"] .booking-form select { background:#112d38; color:#fff; border-color:#42656d; }
     @media(max-width:900px) { .top-nav { flex-wrap:wrap; justify-content:center; }.nav-links { order:3; width:100%; }.hero-copy { padding-top:50px; }.quick-links { grid-template-columns:repeat(3,minmax(0,1fr)); }.hero-note { top:145px; } }
-    @media(max-width:600px) { .site-header { min-height:490px; background-position:60% center; }.top-nav { gap:12px; padding:12px 14px; }.brand img { width:46px;height:46px; }.brand small { font-size:.43rem; letter-spacing:.8px; }.nav-links { gap:9px 14px; }.nav-links a { font-size:.72rem; }.theme-toggle { font-size:.75rem; padding:7px 10px; }.hero-copy { padding:54px 22px 32px; }.hero-copy h1 { font-size:3.1rem; }.hero-description { font-size:.94rem; }.hero-note { top:auto; bottom:22px; right:18px; font-size:.88rem; }.quick-links { grid-template-columns:repeat(2,minmax(0,1fr)); padding:0 14px; }.quick-links>a { padding:11px 9px; gap:8px; }.quick-icon { width:35px;height:35px;font-size:1rem; }.quick-links strong { font-size:.75rem; }.quick-links small { font-size:.62rem; } main { padding:0 13px; }.booking-form { grid-template-columns:repeat(2,minmax(0,1fr)); padding:12px; }.booking-submit,.form-note { grid-column:span 2; } }
+    @media(max-width:600px) { .site-header { min-height:490px; background-position:60% center; }.top-nav { gap:12px; padding:12px 14px; }.brand img { width:46px;height:46px; }.brand small { font-size:.43rem; letter-spacing:.8px; }.nav-links { gap:9px 14px; }.nav-links a { font-size:.72rem; }.theme-toggle { font-size:.75rem; padding:7px 10px; }.hero-copy { padding:54px 22px 32px; }.hero-copy h1 { font-size:3.1rem; }.hero-description { font-size:.94rem; }.hero-note { top:auto; bottom:22px; right:18px; font-size:.88rem; }.quick-links { grid-template-columns:repeat(2,minmax(0,1fr)); padding:0 14px; }.quick-links>a { padding:11px 9px; gap:8px; }.quick-icon { width:35px;height:35px;font-size:1rem; }.quick-links strong { font-size:.75rem; }.quick-links small { font-size:.62rem; } main { padding:0 13px; } }
 
   </style>
 </head>
@@ -974,10 +963,10 @@
       </div>
     </div>
 
-    <!-- Buggy Service Booking -->
+    <!-- Buggy Service Info -->
     <div class="buggy-service" id="buggy">
       <h3>🛺 Island Buggy Hiring Service</h3>
-        
+      <p class="section-intro">Plan your ride around the island. Connect directly with the local service to check availability.</p>
       <div class="contact-grid">
         <a class="contact-item buggy-item" href="tel:+9607994699">
           <div class="icon-avatar buggy-avatar">🛺</div>
@@ -1330,7 +1319,6 @@
       }
     });
 
-
     // Live weather for Guraidhoo via Open-Meteo (no API key required).
     async function loadIslandWeather() {
       try {
@@ -1346,16 +1334,6 @@
       } catch (e) { document.getElementById('weather-summary').textContent = 'Live weather temporarily unavailable'; document.getElementById('weather-temp').textContent = '—'; document.getElementById('weather-wind').textContent = '—'; }
     }
     loadIslandWeather();
-
-    // Prepare a buggy-hire enquiry without claiming a booking is confirmed.
-    document.getElementById('buggy-booking-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const f = new FormData(this);
-      const msg = `Buggy hire enquiry for Guraidhoo%0AName: ${encodeURIComponent(f.get('name'))}%0ADate: ${encodeURIComponent(f.get('date'))}%0APreferred time: ${encodeURIComponent(f.get('time'))}%0APassengers: ${encodeURIComponent(f.get('passengers'))}%0A%0APlease confirm availability and price.`;
-      // Existing site lists +960 799 4699 as the buggy service contact; visitor can review message before sending.
-      const url = `https://wa.me/9607994699?text=${msg}`;
-      window.open(url, '_blank', 'noopener');
-    });
 
     render();
   </script>
